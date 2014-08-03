@@ -35,7 +35,7 @@
 	</bean>
 
 	<bean id="jobRepository"
-		class="br.com.contmatic.connect.batch.MongoDbJobRepositoryFactoryBean"
+		class="br.com.javatar.batch.MongoDbJobRepositoryFactoryBean"
 		p:mongoTemplate-ref="systemMongoTemplate" />
 
 
@@ -44,7 +44,7 @@
 		<property name="jobRepository" ref="jobRepository" />
 	</bean>
      
-     <bean id="writer" class="br.com.contmatic.connect.batch.AccountItemWriter"/>  
+     <bean id="writer" class="br.com.javatar.batch.AccountItemWriter"/>  
      
      <bean id="transactionManager" class="org.springframework.integration.transaction.PseudoTransactionManager"/>
 	
@@ -72,7 +72,7 @@
                           </bean>  
                      </property>  
                      <property name="fieldSetMapper">  
-                          <bean class="br.com.contmatic.connect.batch.AccountFieldSetMapper" />  
+                          <bean class="br.com.javatar.batch.AccountFieldSetMapper" />  
                      </property>  
                 </bean>  
            </property>  

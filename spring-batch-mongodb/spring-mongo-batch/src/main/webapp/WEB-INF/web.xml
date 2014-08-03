@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+	<display-name>Connect Cont</display-name>
+
+	<!-- Root context configuration -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring/application-context.xml</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>spring.profiles.active</param-name>
+		<param-value>web</param-value>
+	</context-param>
+
+
+	<!-- Loads Spring root context, which will be the parent context -->
+	<listener>
+		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextCleanupListener</listener-class>
+	</listener>
+
+	<session-config>
+		<session-timeout>1</session-timeout>
+		<cookie-config>
+			<max-age>0</max-age>
+		</cookie-config>
+	</session-config>
+
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>connect-batch.root</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+</web-app>
